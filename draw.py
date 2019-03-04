@@ -4,7 +4,7 @@ from matrix import *
 
 def draw_lines( matrix, screen, color ):
     if len(matrix) < 2:
-        print('Need at least 2 points to draw')
+        print 'Need at least 2 points to draw'
         return
     
     point = 0
