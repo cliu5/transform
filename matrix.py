@@ -23,6 +23,7 @@ def make_scale( x, y, z ):
     newMatrix[0][0]=x
     newMatrix[1][1]=y
     newMatrix[2][2]=z
+    newMatrix[3][3]=1
     return newMatrix
 
 def make_rotX( theta ):
