@@ -34,12 +34,18 @@ See the file script for an example of the file format
 def parse_file( fname, points, transform, screen, color ):
     f=open(fname,'r')
     script=f.read()
-    commands=f.readlines()
+    commands=script.split('\n')
     for i in range(len(commands)):
-        if commands[i]=='line':
-            points=commands[i+1]
-            coordinates=points.split(" ")
-            add_edge(points,int(coordinates[0]),int(coordinates[1]),int(coordinates[2]),int(coordinates[3]),int(coordinates[4]),int(coordinates[5]))
+        if commands[i] == 'line':
+            nextline = commands[i + 1]
+            args = nextline.split(" ")
+            x0 = int(args[0])
+            y0 = int(args[1])
+            z0 = int(args[2])
+            x1 = int(args[3])
+            y1 = int(args[4])
+            z1 = int(args[5])
+            add_edge(points, x0, y0, z0, x1, y1, z1)
         elif commands[i]=='ident':
             ident(transform)
         elif commands[i]=='scale':
@@ -83,6 +89,5 @@ def parse_file( fname, points, transform, screen, color ):
         elif commands[i] == 'quit':
             break
     f.close()
-
 
 
